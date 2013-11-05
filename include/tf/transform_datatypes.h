@@ -41,7 +41,6 @@
 #include "tf/LinearMath/Transform.h"
 #include "ros/time.h"
 
-#include "ros/console.h"
 
 namespace tf
 {
@@ -107,7 +106,7 @@ static inline void quaternionMsgToTF(const geometry_msgs::Quaternion& msg, Quate
   bt = Quaternion(msg.x, msg.y, msg.z, msg.w); 
   if (fabs(bt.length2() - 1 ) > QUATERNION_TOLERANCE) 
     {
-      ROS_WARN("MSG to TF: Quaternion Not Properly Normalized");
+      //ROS_WARN("MSG to TF: Quaternion Not Properly Normalized");
       bt.normalize();
     }
 };
@@ -116,7 +115,7 @@ static inline void quaternionTFToMsg(const Quaternion& bt, geometry_msgs::Quater
 {
   if (fabs(bt.length2() - 1 ) > QUATERNION_TOLERANCE) 
     {
-      ROS_WARN("TF to MSG: Quaternion Not Properly Normalized");
+      //ROS_WARN("TF to MSG: Quaternion Not Properly Normalized");
       Quaternion bt_temp = bt; 
       bt_temp.normalize();
       msg.x = bt_temp.x(); msg.y = bt_temp.y(); msg.z = bt_temp.z();  msg.w = bt_temp.w();
