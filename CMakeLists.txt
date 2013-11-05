@@ -47,8 +47,6 @@ target_link_libraries(static_transform_publisher ${PROJECT_NAME})
 # Dynamic linking with tf worked OK, except for exception propagation, which failed in the unit test.
 # so build with the objects directly instead.
 
-add_library(src/tf.cpp src/transform_listener.cpp src/cache.cpp)
-
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
 
